@@ -20,11 +20,13 @@ class _testFire(action._action):
     resultBool = bool()
     password = str()
 
-    def setAttribute(self,attr,value):
+    def setAttribute(self,attr,value,sessionData=None):
         if attr == "password" and not value.startswith("ENC "):
-            self.password = "ENC {0}".format(auth.getENCFromPassword(value))
-            return True
-        return super(_testFire, self).setAttribute(attr,value)
+            if fieldACLAccess(sessionData,self.acl,attr,accessType="write"):
+                self.password = "ENC {0}".format(auth.getENCFromPassword(value))
+                return True
+            return False
+        return super(_testFire, self).setAttribute(attr,value,sessionData=sessionData)
 
     def run(self,data,persistentData,actionResult):
         print("Fire!, data={0}".format(data))
