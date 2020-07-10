@@ -19,6 +19,7 @@ class _testFire(action._action):
     crash = bool()
     rc = int()
     resultBool = bool()
+    dontSaveResult = bool()
     password = str()
     lastResult = str()
 
@@ -31,8 +32,9 @@ class _testFire(action._action):
         return super(_testFire, self).setAttribute(attr,value,sessionData=sessionData)
 
     def run(self,data,persistentData,actionResult):
-        self.lastResult = json.dumps(data)
-        self.update(["lastResult"])
+        if not self.dontSaveResult:
+            self.lastResult = json.dumps(data)
+            self.update(["lastResult"])
         print("Fire!, data={0}".format(data))
         if self.delay > 0:
             time.sleep(self.delay)
