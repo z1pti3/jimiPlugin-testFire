@@ -1,3 +1,4 @@
+import json
 import time
 
 from core import auth
@@ -19,6 +20,7 @@ class _testFire(action._action):
     rc = int()
     resultBool = bool()
     password = str()
+    lastResult = str()
 
     def setAttribute(self,attr,value,sessionData=None):
         if attr == "password" and not value.startswith("ENC "):
@@ -29,6 +31,8 @@ class _testFire(action._action):
         return super(_testFire, self).setAttribute(attr,value,sessionData=sessionData)
 
     def run(self,data,persistentData,actionResult):
+        self.lastResult = json.dumps(data)
+        self.update(["lastResult"])
         print("Fire!, data={0}".format(data))
         if self.delay > 0:
             time.sleep(self.delay)
