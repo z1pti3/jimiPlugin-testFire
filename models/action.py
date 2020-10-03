@@ -1,7 +1,7 @@
 import json
 import time
 
-from core import auth
+from core import auth, db
 
 from core.models import action, webui
 
@@ -25,7 +25,7 @@ class _testFire(action._action):
 
     def setAttribute(self,attr,value,sessionData=None):
         if attr == "password" and not value.startswith("ENC "):
-            if fieldACLAccess(sessionData,self.acl,attr,accessType="write"):
+            if db.fieldACLAccess(sessionData,self.acl,attr,accessType="write"):
                 self.password = "ENC {0}".format(auth.getENCFromPassword(value))
                 return True
             return False
