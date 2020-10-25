@@ -6,10 +6,10 @@ from core import auth, db
 from core.models import action, webui
 
 class _testFire(action._action):
-    #class _properties(webui._properties):
+    # class _properties(webui._properties):
     #    def generate(self,classObject):
     #        formData = []
-    #        formData.append({"type" : "input", "schemaitem" : "name", "textbox" : classObject.name})
+    #        formData.append({"type" : "input", "schemaitem" : "name", "textbox" : classObject.name, "label" : "lol"})
     #        formData.append({"type" : "input", "schemaitem" : "logicString", "textbox" : classObject.logicString})
     #        formData.append({"type" : "input", "schemaitem" : "delay", "textbox" : classObject.delay})
     #        formData.append({"type" : "checkbox", "schemaitem" : "enabled", "checked" : classObject.enabled})
