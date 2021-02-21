@@ -1,0 +1,66 @@
+{
+    "name" : "testFire",
+    "author" : "z1p",
+    "version" : 1.9,
+    "categories" : ["test"],
+    "description" : "",
+    "icon" : null,
+    "requirements" : {
+        "jimi_min_version" : null,
+        "jimi_max_version" : null,
+        "plugins" : []
+    },
+    "collections" : {
+
+    },
+    "triggers" : {
+        "testFire" : {
+            "className" : "_testFire",
+            "class_location" : "models.trigger",
+            "description" : "Starts a jimiFlow with the manually defined events.",
+            "fields" : [
+                
+            ]
+        }
+    },
+    "actions" : {
+        "testFire" : {
+            "className" : "_testFire",
+            "class_location" : "models.action",
+            "description" : "Prints the current jimiFlow data to the CLI.",
+            "fields" : [
+                { "schema_item" : "name", "type" : "input", "label" : "name", "description" : "Object name", "required" : true, "jimi_syntax" : false }
+            ],
+            "data_out" : {
+                "result" : { 
+                    "description" : "Determines if the given action was successful.",
+                    "type" : "bool",
+                    "always_present" : true,
+                    "values" : {
+                        "True" : { "description" : "Action completed successfully." },
+                        "False" : { "description" : "Action was unsuccessful." }
+                    }
+                },
+                "rc" : {
+                    "description" : "Returns the provided rc field value.",
+                    "type" : "int",
+                    "always_present" : true,
+                    "values" : {
+                        "(int)" : { "description" : "The integer provided within the rc field." }
+                    }
+                },
+                "data" : {
+                    "description" : "Outputs a decrypted ENC value if provided in the password field.",
+                    "type" : "str",
+                    "always_present" : false,
+                    "values" : {
+                        "(str)" : { "description" : "The decrypted ENC value from the password field." }
+                    }
+                }
+            }
+        }
+    },
+    "settings" : {
+
+    }
+}
