@@ -14,8 +14,9 @@
 
     },
     "triggers" : {
-        "testFire" : {
-            "className" : "_testFire",
+        "testFireTrigger" : {
+            "display_name" : "testFireTrigger",
+            "className" : "_testFireTrigger",
             "class_location" : "models.trigger",
             "description" : "Starts a jimiFlow with the manually defined events.",
             "fields" : [
@@ -25,16 +26,17 @@
     },
     "actions" : {
         "testFire" : {
+            "display_name" : "testFire",
             "className" : "_testFire",
             "class_location" : "models.action",
             "description" : "Prints the current jimiFlow data to the CLI.",
             "fields" : [
-                { "schema_item" : "name", "type" : "input", "label" : "name", "description" : "Object name", "required" : true, "jimi_syntax" : false }
+                { "schema_item" : "name", "schema_value" : "name", "type" : "input", "label" : "name", "description" : "Object name", "required" : true, "jimi_syntax" : false }
             ],
             "data_out" : {
                 "result" : { 
                     "description" : "Determines if the given action was successful.",
-                    "type" : "bool",
+                    "type" : "boolean",
                     "always_present" : true,
                     "values" : {
                         "True" : { "description" : "Action completed successfully." },
@@ -43,18 +45,27 @@
                 },
                 "rc" : {
                     "description" : "Returns the provided rc field value.",
-                    "type" : "int",
+                    "type" : "number",
                     "always_present" : true,
                     "values" : {
-                        "(int)" : { "description" : "The integer provided within the rc field." }
+                        "(number)" : { "description" : "The integer provided within the rc field." }
                     }
                 },
                 "data" : {
                     "description" : "Outputs a decrypted ENC value if provided in the password field.",
-                    "type" : "str",
+                    "type" : "string",
                     "always_present" : false,
                     "values" : {
-                        "(str)" : { "description" : "The decrypted ENC value from the password field." }
+                        "(string)" : { "description" : "The decrypted ENC value from the password field." }
+                    }
+                },
+                "data_dict" : {
+                    "description" : "Does not output anything but is used to test manifest.",
+                    "type" : "json",
+                    "always_present" : false,
+                    "values" : {
+                        "test" : { "description" : "The decrypted ENC value from the password field.", "type" : "json" },
+                        "test.test" : { "description" : "Nested test", "type" : "string", "values" : { "(string)" : {  } } } 
                     }
                 }
             }
