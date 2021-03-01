@@ -31,7 +31,7 @@
             "class_location" : "models.action",
             "description" : "Prints the current jimiFlow data to the CLI.",
             "fields" : [
-                { "schema_item" : "name", "schema_value" : "name", "type" : "input", "label" : "name", "description" : "Object name", "required" : true, "jimi_syntax" : false }
+                { "schema_item" : "crash", "schema_value" : "crash", "type" : "checkbox", "label" : "crash", "description" : "Crash the object", "required" : true, "jimi_syntax" : false }
             ],
             "data_out" : {
                 "result" : { 
