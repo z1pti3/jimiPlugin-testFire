@@ -1,7 +1,7 @@
 from core import plugin, model
 
 class _testFire(plugin._plugin):
-    version = 2.103
+    version = 2.104
     
     def install(self):
         # Register models
