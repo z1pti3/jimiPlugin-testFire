@@ -36,6 +36,7 @@ class _testFire(action._action):
             self.lastResult = json.dumps(data)
             self.update(["lastResult"])
         print("Fire!, data={0}".format(data))
+        print("123")
         if self.delay > 0:
             time.sleep(self.delay)
         if self.crash:
