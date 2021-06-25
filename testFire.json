@@ -31,7 +31,10 @@
             "class_location" : "models.action",
             "description" : "Prints the current jimiFlow data to the CLI.",
             "fields" : [
-                { "schema_item" : "crash", "schema_value" : "crash", "type" : "checkbox", "label" : "crash", "description" : "Crash the object", "required" : true, "jimi_syntax" : false }
+                { "schema_item" : "crash", "schema_value" : "crash", "type" : "checkbox", "label" : "crash", "description" : "Crash the object", "required" : true, "jimi_syntax" : false },
+                { "schema_item" : "group1", "schema_value" : "group1", "type" : "group-checkbox", "label" : "group1 select", "description" : "", "required" : false, "jimi_syntax" : false, "group" : 1 },
+                { "schema_item" : "group1Value1", "schema_value" : "group1Value1", "type" : "input", "label" : "input 1", "description" : "", "required" : false, "jimi_syntax" : false, "group" : 1 },
+                { "schema_item" : "group1Value2", "schema_value" : "group1Value2", "type" : "input", "label" : "input 2", "description" : "", "required" : false, "jimi_syntax" : false, "group" : 1 }
             ],
             "data_out" : {
                 "result" : { 

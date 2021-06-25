@@ -22,6 +22,9 @@ class _testFire(action._action):
     dontSaveResult = bool()
     password = str()
     lastResult = str()
+    group1 = bool()
+    group1Value1 = str()
+    group1Value2 = str()
 
     def setAttribute(self,attr,value,sessionData=None):
         if attr == "password" and not value.startswith("ENC "):
